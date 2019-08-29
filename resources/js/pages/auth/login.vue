@@ -99,9 +99,6 @@ export default {
       // Fetch the user.
       await this.$store.dispatch('auth/fetchUser')
 
-      // Fetch teams
-      await this.$store.dispatch('auth/fetchTeams')
-
       // Redirect home.
       this.$router.push({ name: 'home' })
     }

@@ -1,6 +1,5 @@
 <template>
   <v-navigation-drawer
-    v-if="user"
     v-model="drawer"
     dark
     fixed
@@ -47,6 +46,11 @@ export default {
         text: 'Dashboard'
       },
       {
+        to: '/products',
+        icon: 'mdi-package-variant-closed',
+        text: 'Products'
+      },
+      {
         to: '/settings',
         icon: 'mdi-account',
         text: 'Profile'
@@ -55,10 +59,6 @@ export default {
   }),
 
   computed: {
-    ...mapGetters({
-      user: 'auth/user'
-    }),
-
     drawer: {
       get () {
         return this.value

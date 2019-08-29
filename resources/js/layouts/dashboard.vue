@@ -16,6 +16,9 @@ import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
 
 export default {
+  // TODO: make layout middlewares
+  // middleware: 'auth',
+
   components: {
     Navbar,
     Sidebar
