@@ -1,0 +1,215 @@
+[
+    {
+        "id": 1,
+        "is_bundle": false,
+        "sku": "distinctio",
+        "name": "Optional hybrid firmware",
+        "description": "Est vero quia ratione consectetur ipsa. Nihil totam eveniet quaerat sit. Est natus odit id id suscipit aut.",
+        "price": "77.27",
+        "image": "https://lorempixel.com/200/200/?56523",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 2,
+        "is_bundle": false,
+        "sku": "veniam",
+        "name": "Down-sized impactful benchmark",
+        "description": "Aliquam eum qui aut et iste facilis nemo asperiores. Illo et fugit dolores aliquid amet id voluptatem. Temporibus qui ut sit. Dolores omnis ratione totam minus illo et voluptas.",
+        "price": "25.48",
+        "image": "https://lorempixel.com/200/200/?88377",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 3,
+        "is_bundle": false,
+        "sku": "delectus",
+        "name": "User-friendly zerodefect extranet",
+        "description": "Culpa cum quos qui libero. Sed itaque qui sed enim est aut. Quo corporis incidunt commodi eaque ratione nesciunt. Tempore tempora ea maxime qui. Sit ducimus nemo distinctio minus.",
+        "price": "64.85",
+        "image": "https://lorempixel.com/200/200/?17998",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 4,
+        "is_bundle": false,
+        "sku": "quisquam",
+        "name": "Fully-configurable zerodefect adapter",
+        "description": "Qui eveniet ullam et laborum quis ab impedit. Voluptatem voluptate officia praesentium ea aliquid. Corporis corrupti amet doloremque.",
+        "price": "3.51",
+        "image": "https://lorempixel.com/200/200/?65236",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 5,
+        "is_bundle": false,
+        "sku": "nobis",
+        "name": "Extended motivating GraphicInterface",
+        "description": "Laboriosam vero quo repellat consequatur et suscipit exercitationem. Quia consequatur eligendi et deleniti. Sed excepturi non in vel.",
+        "price": "22.63",
+        "image": "https://lorempixel.com/200/200/?44190",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 6,
+        "is_bundle": false,
+        "sku": "sint",
+        "name": "Vision-oriented high-level migration",
+        "description": "Voluptatem quis assumenda eum voluptas. Sit qui qui omnis aperiam voluptatibus et quisquam.",
+        "price": "8.53",
+        "image": "https://lorempixel.com/200/200/?94652",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 7,
+        "is_bundle": true,
+        "sku": "nisi",
+        "name": "6 Pack",
+        "description": "Est cumque consequatur et. Nesciunt laborum laboriosam non quaerat molestiae non. Aliquam rerum ullam et. Velit accusantium deserunt voluptatum.",
+        "price": "99.46",
+        "image": "https://lorempixel.com/200/200/?90687",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31",
+        "products": [
+            {
+                "id": 1,
+                "is_bundle": false,
+                "sku": "distinctio",
+                "name": "Optional hybrid firmware",
+                "description": "Est vero quia ratione consectetur ipsa. Nihil totam eveniet quaerat sit. Est natus odit id id suscipit aut.",
+                "price": "77.27",
+                "image": "https://lorempixel.com/200/200/?56523",
+                "created_at": "2019-08-28 11:46:31",
+                "updated_at": "2019-08-28 11:46:31",
+                "pivot": {
+                    "product_id": 7,
+                    "bundle_id": 1
+                }
+            },
+            {
+                "id": 2,
+                "is_bundle": false,
+                "sku": "veniam",
+                "name": "Down-sized impactful benchmark",
+                "description": "Aliquam eum qui aut et iste facilis nemo asperiores. Illo et fugit dolores aliquid amet id voluptatem. Temporibus qui ut sit. Dolores omnis ratione totam minus illo et voluptas.",
+                "price": "25.48",
+                "image": "https://lorempixel.com/200/200/?88377",
+                "created_at": "2019-08-28 11:46:31",
+                "updated_at": "2019-08-28 11:46:31",
+                "pivot": {
+                    "product_id": 7,
+                    "bundle_id": 2
+                }
+            },
+            {
+                "id": 3,
+                "is_bundle": false,
+                "sku": "delectus",
+                "name": "User-friendly zerodefect extranet",
+                "description": "Culpa cum quos qui libero. Sed itaque qui sed enim est aut. Quo corporis incidunt commodi eaque ratione nesciunt. Tempore tempora ea maxime qui. Sit ducimus nemo distinctio minus.",
+                "price": "64.85",
+                "image": "https://lorempixel.com/200/200/?17998",
+                "created_at": "2019-08-28 11:46:31",
+                "updated_at": "2019-08-28 11:46:31",
+                "pivot": {
+                    "product_id": 7,
+                    "bundle_id": 3
+                }
+            },
+            {
+                "id": 4,
+                "is_bundle": false,
+                "sku": "quisquam",
+                "name": "Fully-configurable zerodefect adapter",
+                "description": "Qui eveniet ullam et laborum quis ab impedit. Voluptatem voluptate officia praesentium ea aliquid. Corporis corrupti amet doloremque.",
+                "price": "3.51",
+                "image": "https://lorempixel.com/200/200/?65236",
+                "created_at": "2019-08-28 11:46:31",
+                "updated_at": "2019-08-28 11:46:31",
+                "pivot": {
+                    "product_id": 7,
+                    "bundle_id": 4
+                }
+            },
+            {
+                "id": 5,
+                "is_bundle": false,
+                "sku": "nobis",
+                "name": "Extended motivating GraphicInterface",
+                "description": "Laboriosam vero quo repellat consequatur et suscipit exercitationem. Quia consequatur eligendi et deleniti. Sed excepturi non in vel.",
+                "price": "22.63",
+                "image": "https://lorempixel.com/200/200/?44190",
+                "created_at": "2019-08-28 11:46:31",
+                "updated_at": "2019-08-28 11:46:31",
+                "pivot": {
+                    "product_id": 7,
+                    "bundle_id": 5
+                }
+            },
+            {
+                "id": 6,
+                "is_bundle": false,
+                "sku": "sint",
+                "name": "Vision-oriented high-level migration",
+                "description": "Voluptatem quis assumenda eum voluptas. Sit qui qui omnis aperiam voluptatibus et quisquam.",
+                "price": "8.53",
+                "image": "https://lorempixel.com/200/200/?94652",
+                "created_at": "2019-08-28 11:46:31",
+                "updated_at": "2019-08-28 11:46:31",
+                "pivot": {
+                    "product_id": 7,
+                    "bundle_id": 6
+                }
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "is_bundle": false,
+        "sku": "eos",
+        "name": "Organized object-oriented openarchitecture",
+        "description": "Veritatis et aut distinctio neque ut. Ex repellat consequuntur et magnam quasi. Ea alias vel quas qui soluta amet rerum.",
+        "price": "18.74",
+        "image": "https://lorempixel.com/200/200/?80469",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 9,
+        "is_bundle": false,
+        "sku": "inventore",
+        "name": "Progressive mission-critical neural-net",
+        "description": "Ut quia eius perspiciatis. Dolores enim iusto recusandae ut. Temporibus totam odio quis non ducimus ad.",
+        "price": "52.32",
+        "image": "https://lorempixel.com/200/200/?60148",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 10,
+        "is_bundle": false,
+        "sku": "expedita",
+        "name": "Mandatory web-enabled encoding",
+        "description": "Dolor expedita iure non quas doloremque consequuntur voluptatibus. Dolores non velit fugit velit quam in. Dolor ad quia animi a dolorem vel. Nemo voluptatum facilis qui ipsam eius.",
+        "price": "72.74",
+        "image": "https://lorempixel.com/200/200/?66322",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    },
+    {
+        "id": 11,
+        "is_bundle": false,
+        "sku": "beatae",
+        "name": "Up-sized object-oriented pricingstructure",
+        "description": "Est officia eveniet aliquid velit asperiores cumque. Molestias nihil ut esse laboriosam itaque. Dolorem temporibus soluta ea et iusto. Nobis est eum nostrum cupiditate nihil officia id.",
+        "price": "3.57",
+        "image": "https://lorempixel.com/200/200/?85414",
+        "created_at": "2019-08-28 11:46:31",
+        "updated_at": "2019-08-28 11:46:31"
+    }
+]
