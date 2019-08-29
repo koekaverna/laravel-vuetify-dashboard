@@ -1,40 +1,49 @@
 <template>
-  <div class="row">
-    <div class="col-md-3">
-      <card :title="$t('settings')" class="settings-card">
-        <ul class="nav flex-column nav-pills">
-          <li v-for="tab in tabs" :key="tab.route" class="nav-item">
-            <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
-              <fa :icon="tab.icon" fixed-width />
-              {{ tab.name }}
-            </router-link>
-          </li>
-        </ul>
-      </card>
-    </div>
-
-    <div class="col-md-9">
-      <transition name="fade" mode="out-in">
-        <router-view />
-      </transition>
-    </div>
-  </div>
+  <v-layout>
+    <v-flex
+      xs12
+      sm10
+      md8
+      lg6
+    >
+      <v-card>
+        <v-tabs dark>
+          <v-tab
+            v-for="tab in tabs"
+            :key="tab.route"
+            :to="{ name: tab.route }"
+          >
+            <v-icon>{{ tab.icon }}</v-icon>
+            {{ tab.name }}
+          </v-tab>
+        </v-tabs>
+        <transition
+          name="fade"
+          mode="out-in"
+        >
+          <router-view />
+        </transition>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 export default {
   middleware: 'auth',
 
+  layout: 'dashboard',
+
   computed: {
     tabs () {
       return [
         {
-          icon: 'user',
+          icon: 'mdi-account',
           name: this.$t('profile'),
           route: 'settings.profile'
         },
         {
-          icon: 'lock',
+          icon: 'mdi-lock',
           name: this.$t('password'),
           route: 'settings.password'
         }
@@ -43,9 +52,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.settings-card .card-body {
-  padding: 0;
-}
-</style>

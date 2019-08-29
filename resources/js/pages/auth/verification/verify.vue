@@ -1,28 +1,54 @@
 <template>
-  <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card :title="$t('verify_email')">
-        <template v-if="success">
-          <div class="alert alert-success" role="alert">
-            {{ success }}
+  <v-layout justify-center>
+    <v-flex
+      xs12
+      sm8
+      md6
+    >
+      <v-card>
+        <v-card-title>
+          <div class="title">
+            {{ $t('verify_email') }}
           </div>
-
-          <router-link :to="{ name: 'login' }" class="btn btn-primary">
-            {{ $t('login') }}
-          </router-link>
+        </v-card-title>
+        <template v-if="success">
+          <v-card-text>
+            <v-alert type="success">
+              {{ success }}
+            </v-alert>
+          </v-card-text>
+          <v-divider class="mt-1" />
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              :to="{ name: 'login' }"
+            >
+              {{ $t('login') }}
+            </v-btn>
+          </v-card-actions>
         </template>
         <template v-else>
-          <div class="alert alert-danger" role="alert">
-            {{ error || $t('failed_to_verify_email') }}
-          </div>
+          <v-card-text>
+            <v-alert type="error">
+              {{ error || $t('failed_to_verify_email') }}
+            </v-alert>
+          </v-card-text>
+          <v-divider class="mt-1" />
 
-          <router-link :to="{ name: 'verification.resend' }" class="small float-right">
-            {{ $t('resend_verification_link') }}
-          </router-link>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              color="secondary"
+              text
+              :to="{ name: 'verification.resend' }"
+            >
+              {{ $t('resend_verification_link') }}
+            </v-btn>
+          </v-card-actions>
         </template>
-      </card>
-    </div>
-  </div>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>

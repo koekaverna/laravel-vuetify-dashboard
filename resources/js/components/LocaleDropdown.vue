@@ -1,29 +1,42 @@
 <template>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button"
-       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-    >
-      {{ locales[locale] }}
-    </a>
-    <div class="dropdown-menu">
-      <a v-for="(value, key) in locales" :key="key" class="dropdown-item" href="#"
-         @click.prevent="setLocale(key)"
+  <v-menu offset-y>
+    <template v-slot:activator="{ on }">
+      <v-btn
+        slot="activator"
+        text
+        v-on="on"
       >
-        {{ value }}
-      </a>
-    </div>
-  </li>
+        {{ locales[locale] }}
+        <v-icon>
+          mdi-chevron-down
+        </v-icon>
+      </v-btn>
+    </template>
+    <v-list dense>
+      <v-list-item
+        v-for="(value, key) in locales"
+        :key="key"
+        @click.prevent="setLocale(key)"
+      >
+        <v-list-item-title
+          v-text="value"
+        />
+      </v-list-item>
+    </v-list>
+  </v-menu>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { loadMessages } from '~/plugins/i18n'
+import { loadMessages } from '@/plugins/i18n'
 
 export default {
-  computed: mapGetters({
-    locale: 'lang/locale',
-    locales: 'lang/locales'
-  }),
+  computed: {
+    ...mapGetters({
+      locale: 'lang/locale',
+      locales: 'lang/locales'
+    })
+  },
 
   methods: {
     setLocale (locale) {

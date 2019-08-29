@@ -1,8 +1,8 @@
-@import 'variables';
-@import '~bootstrap/scss/bootstrap';
 @import '~sweetalert2/src/sweetalert2';
+@import '~vuetify/src/styles/settings/colors';
 
-@import 'elements/card';
-@import 'elements/navbar';
-@import 'elements/buttons';
+// @import 'elements/card';
+// @import 'elements/navbar';
+// @import 'elements/buttons';
 @import 'elements/transitions';
+@import 'elements/tabs'

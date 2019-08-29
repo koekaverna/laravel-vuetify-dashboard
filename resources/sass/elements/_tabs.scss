@@ -1,0 +1,9 @@
+.v-tabs-bar.theme--dark {
+    .v-tabs-slider-wrapper {
+        color: map-get($amber, 'darken-1')!important;
+    }
+}
+
+.v-tabs >.v-tabs-bar .v-tabs-bar__content > .v-tabs-slider-wrapper+.v-tab {
+    margin-left: 0 !important;
+}

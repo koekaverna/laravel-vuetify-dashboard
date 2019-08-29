@@ -1,76 +1,92 @@
 <template>
-  <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card v-if="mustVerifyEmail" :title="$t('register')">
-        <div class="alert alert-success" role="alert">
-          {{ $t('verify_email_address') }}
-        </div>
-      </card>
-      <card v-else :title="$t('register')">
-        <form @submit.prevent="register" @keydown="form.onKeydown($event)">
-          <!-- Name -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('name') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.name" :class="{ 'is-invalid': form.errors.has('name') }" class="form-control" type="text" name="name">
-              <has-error :form="form" field="name" />
-            </div>
+  <v-layout justify-center>
+    <v-flex
+      xs12
+      sm8
+      md6
+    >
+      <v-card
+        v-if="mustVerifyEmail"
+      >
+        <v-card-title>
+          <div class="title">
+            {{ $t('register') }}
           </div>
-
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" type="email" name="email">
-              <has-error :form="form" field="email" />
+        </v-card-title>
+        <v-card-text>
+          <v-alert
+            type="success"
+          >
+            {{ $t('verify_email_address') }}
+          </v-alert>
+        </v-card-text>
+      </v-card>
+      <v-card v-else>
+        <v-form
+          @submit.prevent="register"
+          @keydown="form.onKeydown($event)"
+        >
+          <v-card-title>
+            <div class="title">
+              {{ $t('register') }}
             </div>
-          </div>
+          </v-card-title>
+          <v-card-text>
+            <!-- Name -->
+            <v-text-field
+              v-model="form.name"
+              :label="$t('name')"
+              :error-messages="form.errors.errors.name"
+              prepend-icon="mdi-account"
+            />
 
-          <!-- Password -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }" class="form-control" type="password" name="password">
-              <has-error :form="form" field="password" />
-            </div>
-          </div>
+            <!-- Email -->
+            <v-text-field
+              v-model="form.email"
+              :label="$t('email')"
+              :error-messages="form.errors.errors.email"
+              prepend-icon="mdi-email"
+            />
 
-          <!-- Password Confirmation -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('confirm_password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password_confirmation" :class="{ 'is-invalid': form.errors.has('password_confirmation') }" class="form-control" type="password" name="password_confirmation">
-              <has-error :form="form" field="password_confirmation" />
-            </div>
-          </div>
+            <!-- Password -->
+            <v-text-field
+              v-model="form.password"
+              :label="$t('password')"
+              :error-messages="form.errors.errors.password"
+              prepend-icon="mdi-lock"
+              type="password"
+            />
 
-          <div class="form-group row">
-            <div class="col-md-7 offset-md-3 d-flex">
-              <!-- Submit Button -->
-              <v-button :loading="form.busy">
-                {{ $t('register') }}
-              </v-button>
-
-              <!-- GitHub Register Button -->
-              <login-with-github />
-            </div>
-          </div>
-        </form>
-      </card>
-    </div>
-  </div>
+            <!-- Password Confirmation -->
+            <v-text-field
+              v-model="form.password_confirmation"
+              :label="$t('confirm_password')"
+              :error-messages="form.errors.errors.password_confirmation"
+              prepend-icon="mdi-lock"
+              type="password"
+            />
+          </v-card-text>
+          <v-divider class="mt-1" />
+          <v-card-actions>
+            <v-btn
+              :loading="form.busy"
+              color="primary"
+              type="submit"
+            >
+              {{ $t('register') }}
+            </v-btn>
+          </v-card-actions>
+        </v-form>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 import Form from 'vform'
-import LoginWithGithub from '~/components/LoginWithGithub'
 
 export default {
   middleware: 'guest',
-
-  components: {
-    LoginWithGithub
-  },
 
   metaInfo () {
     return { title: this.$t('register') }

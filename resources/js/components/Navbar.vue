@@ -1,61 +1,83 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container">
-      <router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-brand">
+  <v-app-bar
+    color="grey lighten-3"
+    dense
+    fixed
+    clipped-left
+    app
+  >
+    <v-app-bar-nav-icon
+      v-if="user"
+      class="hidden-lg-and-up mr-2"
+      @click="$emit('side-icon-click')"
+    />
+
+    <v-toolbar-title class="pl-0">
+      <router-link class="title text--primary" :to="{ name: 'home' }">
         {{ appName }}
       </router-link>
+    </v-toolbar-title>
+    <v-spacer />
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false">
-        <span class="navbar-toggler-icon" />
-      </button>
-
-      <div id="navbarToggler" class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-          <locale-dropdown />
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-          <!-- Authenticated -->
-          <li v-if="user" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark"
-               href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    <v-toolbar-items>
+      <locale-dropdown />
+      <!-- Authenticated -->
+      <template v-if="user">
+        <v-menu
+          offset-y
+          offset-x
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn
+              slot="activator"
+              text
+              v-on="on"
             >
-              <img :src="user.photo_url" class="rounded-circle profile-photo mr-1">
-              {{ user.name }}
-            </a>
-            <div class="dropdown-menu">
-              <router-link :to="{ name: 'settings.profile' }" class="dropdown-item pl-3">
-                <fa icon="cog" fixed-width />
-                {{ $t('settings') }}
-              </router-link>
-
-              <div class="dropdown-divider" />
-              <a href="#" class="dropdown-item pl-3" @click.prevent="logout">
-                <fa icon="sign-out-alt" fixed-width />
-                {{ $t('logout') }}
-              </a>
-            </div>
-          </li>
-          <!-- Guest -->
-          <template v-else>
-            <li class="nav-item">
-              <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
-                {{ $t('login') }}
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link :to="{ name: 'register' }" class="nav-link" active-class="active">
-                {{ $t('register') }}
-              </router-link>
-            </li>
+              <v-avatar
+                size="32"
+                color="white"
+              >
+                <v-img
+                  :src="user.photo_url"
+                />
+              </v-avatar>
+              <span class="hidden-xs-only ml-2">{{ user.name }}</span>
+            </v-btn>
           </template>
-        </ul>
-      </div>
-    </div>
-  </nav>
+          <v-list>
+            <v-list-item
+              :to="{ name: 'settings.profile' }"
+            >
+              <v-list-item-title>
+                <v-icon>mdi-settings</v-icon>
+                {{ $t('settings') }}
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              @click.prevent="logout"
+            >
+              <v-list-item-title>
+                <v-icon>mdi-logout</v-icon>
+                {{ $t('logout') }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </template>
+      <!-- Guest -->
+      <template v-else>
+        <v-btn
+          :to="{ name: 'login' }"
+          text
+        >
+          {{ $t('login') }}
+        </v-btn>
+        <v-btn :to="{ name: 'register' }" text>
+          {{ $t('register') }}
+        </v-btn>
+      </template>
+    </v-toolbar-items>
+  </v-app-bar>
 </template>
 
 <script>
@@ -67,13 +89,19 @@ export default {
     LocaleDropdown
   },
 
+  head () {
+    return { title: this.appName }
+  },
+
   data: () => ({
     appName: window.config.appName
   }),
 
-  computed: mapGetters({
-    user: 'auth/user'
-  }),
+  computed: {
+    ...mapGetters({
+      user: 'auth/user'
+    })
+  },
 
   methods: {
     async logout () {
@@ -87,10 +115,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.profile-photo {
-  width: 2rem;
-  height: 2rem;
-  margin: -.375rem 0;
-}
+<style lang="scss" scoped>
+  .title {
+    text-decoration: none !important;
+  }
 </style>

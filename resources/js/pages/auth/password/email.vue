@@ -1,31 +1,50 @@
 <template>
-  <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card :title="$t('reset_password')">
-        <form @submit.prevent="send" @keydown="form.onKeydown($event)">
-          <alert-success :form="form" :message="status" />
-
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" type="email" name="email">
-              <has-error :form="form" field="email" />
+  <v-layout justify-center>
+    <v-flex
+      xs12
+      sm8
+      md4
+    >
+      <v-card>
+        <v-form
+          @submit.prevent="send"
+          @keydown="form.onKeydown($event)"
+        >
+          <v-alert
+            v-model="form.successful"
+            dismissible
+            type="success"
+          >
+            {{ status }}
+          </v-alert>
+          <v-card-title>
+            <div class="title">
+              {{ $t('reset_password') }}
             </div>
-          </div>
-
-          <!-- Submit Button -->
-          <div class="form-group row">
-            <div class="col-md-9 ml-md-auto">
-              <v-button :loading="form.busy">
-                {{ $t('send_password_reset_link') }}
-              </v-button>
-            </div>
-          </div>
-        </form>
-      </card>
-    </div>
-  </div>
+          </v-card-title>
+          <v-card-text>
+            <!-- Email -->
+            <v-text-field
+              v-model="form.email"
+              :label="$t('email')"
+              :error-messages="form.errors.errors.email"
+              prepend-icon="mdi-email"
+            />
+          </v-card-text>
+          <v-divider class="mt-1" />
+          <v-card-actions>
+            <v-btn
+              :loading="form.busy"
+              color="primary"
+              type="submit"
+            >
+              {{ $t('send_password_reset_link') }}
+            </v-btn>
+          </v-card-actions>
+        </v-form>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
